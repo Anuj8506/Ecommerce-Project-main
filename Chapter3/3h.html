@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>3 G</title>
+</head>
+
+<body>
+    <div class="js-Container"></div>
+
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/chatbot.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script> 
+    <script type="text/babel">
+
+        function App(){
+            const [ text , setText ] = React.useState('');
+            function saveText(e){
+                setText(e.target.value);
+            }
+
+            function reset(){
+                setText('');
+            }
+
+            function example(){
+                setText('alice')
+            }
+          
+            return (
+                <>
+                    <input 
+                    placeholder = 'Type a name here'
+                    onChange = { saveText }
+                    value = { text } 
+                    />
+                    <button onClick = { reset }>Reset</button>   
+                    <button onClick = { example }>Example</button>
+                    <p> Hello { text }</p> 
+                </>
+            );
+        }
+        const box = document.querySelector('.js-Container');
+        ReactDOM.createRoot(box).render(<App />);
+    </script>
+</body>
+
+</html>

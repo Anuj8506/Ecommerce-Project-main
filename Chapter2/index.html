@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ChatBot</title>
+</head>
+
+<body>
+    <div class="js-Container"></div>
+
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+
+        function Chatbot() {//first letter always capital of component
+            return (
+                <>
+                    <input
+                        placeholder="Send a message to ChatBot"
+                        size="30">
+                    </input>
+                    <button>Send</button>
+                </>
+            );
+        }
+
+        function Chat_Message({ msg, sender }) {
+            // let msg = props.msg;
+            // let sender = props.sender;
+
+            // const { msg , sender}=props; 
+
+            // if (sender === 'Robot') {
+            //     return (
+            //         <div>
+            //             {msg}
+            //             <img src="robot.png" width="50" />
+            //         </div>
+            //     );
+            // }
+            return (
+                <div>
+                    {sender === 'User' && <img src="User.png" width="50" />}
+                    {msg}
+                    {sender === 'Robot' && <img src="robot.png" width="50" />}
+                </div>
+            );
+        }
+
+        function App() {
+            return (
+                <>
+                    <Chatbot />
+                    <Chat_Message msg="Hello ChatBot" sender="User" />
+                    <Chat_Message msg="Hello! How can i help you?" sender="Robot" />
+                    <Chat_Message msg="Can you tell me today's date?" sender="User" />
+                    <Chat_Message msg="Ohh! It's 22 August." sender="Robot" />
+                </>
+            );
+        }
+
+        const box = document.querySelector('.js-Container');
+        ReactDOM.createRoot(box).render(<App/>);
+    </script>
+</body>
+
+</html>
+
+
+
+<!-- // const Navbar = document.querySelector('.js-Navbar');
+        // ReactDOM.createRoot(Navbar).render(<Chatbot />);
+        // const Content=document.querySelector('.js-Main');
+        // ReactDOM.createRoot(Content).render(<Chat_Message/>); -->

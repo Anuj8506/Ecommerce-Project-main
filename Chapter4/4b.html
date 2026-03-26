@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>4B</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    .ON{
+        background-color: rgb(25,135,84);
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <div class="js-Container"></div>
+
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/chatbot.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script> 
+    <script type="text/babel">
+        function App() {
+            const [ flag , setFlag ] = React.useState(0);
+            function isButtonOn(){
+                flag === 0 ? setFlag(1) : setFlag(0);
+            }
+            return (
+                <>   
+                    <button 
+                        className = 'ON'
+                        onClick = { isButtonOn }
+                    >{ flag === 0 ? 'ON' : 'OFF'  }</button>                
+                </>
+            );
+        }
+
+        const box = document.querySelector('.js-Container');
+        ReactDOM.createRoot(box).render(<App />);
+    </script>
+</body>
+
+</html>
