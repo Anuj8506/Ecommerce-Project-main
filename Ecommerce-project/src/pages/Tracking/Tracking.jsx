@@ -1,5 +1,5 @@
 import './TrackingPages.css';
-import { Header } from '../components/Header';
+import { Header } from '../../components/Header';
 
 export function TrackingPage( { cart }) {
   return (
