@@ -28,7 +28,7 @@ export function OrderSummary({ cart , deliveryOptions }){
                         {cartItem.product.name}
                         </div>
                         <div className="product-price">
-                        ${Formatmoney(cartItem.product.priceCents)}
+                          {Formatmoney(cartItem.product.priceCents)}
                         </div>
                         <div className="product-quantity">
                         <span>
